@@ -1,0 +1,261 @@
+$flaticon_mycollection-font: "flaticon_mycollection";
+
+@font-face {
+    font-family: $flaticon_mycollection-font;
+    src: url("./flaticon_mycollection.woff2?1431294ac8067ba2e5aa1686eb637eaf") format("woff2"),
+url("./flaticon_mycollection.woff?1431294ac8067ba2e5aa1686eb637eaf") format("woff"),
+url("./flaticon_mycollection.eot?1431294ac8067ba2e5aa1686eb637eaf#iefix") format("embedded-opentype"),
+url("./flaticon_mycollection.ttf?1431294ac8067ba2e5aa1686eb637eaf") format("truetype"),
+url("./flaticon_mycollection.svg?1431294ac8067ba2e5aa1686eb637eaf#flaticon_mycollection") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_mycollection !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon_mycollection-map: (
+    "box-1": "\f101",
+    "formation-1": "\f102",
+    "tactics": "\f103",
+    "formation-2": "\f104",
+    "football": "\f105",
+    "soccer-player": "\f106",
+    "goal": "\f107",
+    "goal-1": "\f108",
+    "tshirt": "\f109",
+    "soccer-player-2": "\f10a",
+    "football-1": "\f10b",
+    "soccer-player-4": "\f10c",
+    "trophy": "\f10d",
+    "kicking-ball": "\f10e",
+    "stadium": "\f10f",
+    "friendship": "\f110",
+    "kicking-ball-1": "\f111",
+    "football-2": "\f112",
+    "goal-4": "\f113",
+    "drills": "\f114",
+    "strategy": "\f115",
+    "soccer-1": "\f116",
+    "club": "\f117",
+    "soccer-dribbling": "\f118",
+    "cleats": "\f119",
+    "tshirt-1": "\f11a",
+    "kick": "\f11b",
+    "gloves": "\f11c",
+    "football-jersey": "\f11d",
+    "referee": "\f11e",
+    "soccer-player-7": "\f11f",
+    "football-7": "\f120",
+    "shirt": "\f121",
+    "soccer-2": "\f122",
+    "cone": "\f123",
+    "shirt-1": "\f124",
+    "football-players-1": "\f125",
+    "football-uniform-1": "\f126",
+    "football-referee": "\f127",
+    "trophy-2": "\f128",
+    "tickets-1": "\f129",
+    "corner-1": "\f12a",
+    "football-shirt": "\f12b",
+    "shirt-2": "\f12c",
+    "soccer-3": "\f12d",
+    "rugby": "\f12e",
+    "goal-6": "\f12f",
+    "soccer-4": "\f130",
+    "luggage": "\f131",
+    "football-15": "\f132",
+    "football-16": "\f133",
+    "football-award-1": "\f134",
+    "user": "\f135",
+    "add-user": "\f136",
+    "add-group": "\f137",
+    "add-friend": "\f138",
+    "training": "\f139",
+    "learning": "\f13a",
+    "online-learning-2": "\f13b",
+);
+
+.flaticon-box-1:before {
+    content: map-get($flaticon_mycollection-map, "box-1");
+}
+.flaticon-formation-1:before {
+    content: map-get($flaticon_mycollection-map, "formation-1");
+}
+.flaticon-tactics:before {
+    content: map-get($flaticon_mycollection-map, "tactics");
+}
+.flaticon-formation-2:before {
+    content: map-get($flaticon_mycollection-map, "formation-2");
+}
+.flaticon-football:before {
+    content: map-get($flaticon_mycollection-map, "football");
+}
+.flaticon-soccer-player:before {
+    content: map-get($flaticon_mycollection-map, "soccer-player");
+}
+.flaticon-goal:before {
+    content: map-get($flaticon_mycollection-map, "goal");
+}
+.flaticon-goal-1:before {
+    content: map-get($flaticon_mycollection-map, "goal-1");
+}
+.flaticon-tshirt:before {
+    content: map-get($flaticon_mycollection-map, "tshirt");
+}
+.flaticon-soccer-player-2:before {
+    content: map-get($flaticon_mycollection-map, "soccer-player-2");
+}
+.flaticon-football-1:before {
+    content: map-get($flaticon_mycollection-map, "football-1");
+}
+.flaticon-soccer-player-4:before {
+    content: map-get($flaticon_mycollection-map, "soccer-player-4");
+}
+.flaticon-trophy:before {
+    content: map-get($flaticon_mycollection-map, "trophy");
+}
+.flaticon-kicking-ball:before {
+    content: map-get($flaticon_mycollection-map, "kicking-ball");
+}
+.flaticon-stadium:before {
+    content: map-get($flaticon_mycollection-map, "stadium");
+}
+.flaticon-friendship:before {
+    content: map-get($flaticon_mycollection-map, "friendship");
+}
+.flaticon-kicking-ball-1:before {
+    content: map-get($flaticon_mycollection-map, "kicking-ball-1");
+}
+.flaticon-football-2:before {
+    content: map-get($flaticon_mycollection-map, "football-2");
+}
+.flaticon-goal-4:before {
+    content: map-get($flaticon_mycollection-map, "goal-4");
+}
+.flaticon-drills:before {
+    content: map-get($flaticon_mycollection-map, "drills");
+}
+.flaticon-strategy:before {
+    content: map-get($flaticon_mycollection-map, "strategy");
+}
+.flaticon-soccer-1:before {
+    content: map-get($flaticon_mycollection-map, "soccer-1");
+}
+.flaticon-club:before {
+    content: map-get($flaticon_mycollection-map, "club");
+}
+.flaticon-soccer-dribbling:before {
+    content: map-get($flaticon_mycollection-map, "soccer-dribbling");
+}
+.flaticon-cleats:before {
+    content: map-get($flaticon_mycollection-map, "cleats");
+}
+.flaticon-tshirt-1:before {
+    content: map-get($flaticon_mycollection-map, "tshirt-1");
+}
+.flaticon-kick:before {
+    content: map-get($flaticon_mycollection-map, "kick");
+}
+.flaticon-gloves:before {
+    content: map-get($flaticon_mycollection-map, "gloves");
+}
+.flaticon-football-jersey:before {
+    content: map-get($flaticon_mycollection-map, "football-jersey");
+}
+.flaticon-referee:before {
+    content: map-get($flaticon_mycollection-map, "referee");
+}
+.flaticon-soccer-player-7:before {
+    content: map-get($flaticon_mycollection-map, "soccer-player-7");
+}
+.flaticon-football-7:before {
+    content: map-get($flaticon_mycollection-map, "football-7");
+}
+.flaticon-shirt:before {
+    content: map-get($flaticon_mycollection-map, "shirt");
+}
+.flaticon-soccer-2:before {
+    content: map-get($flaticon_mycollection-map, "soccer-2");
+}
+.flaticon-cone:before {
+    content: map-get($flaticon_mycollection-map, "cone");
+}
+.flaticon-shirt-1:before {
+    content: map-get($flaticon_mycollection-map, "shirt-1");
+}
+.flaticon-football-players-1:before {
+    content: map-get($flaticon_mycollection-map, "football-players-1");
+}
+.flaticon-football-uniform-1:before {
+    content: map-get($flaticon_mycollection-map, "football-uniform-1");
+}
+.flaticon-football-referee:before {
+    content: map-get($flaticon_mycollection-map, "football-referee");
+}
+.flaticon-trophy-2:before {
+    content: map-get($flaticon_mycollection-map, "trophy-2");
+}
+.flaticon-tickets-1:before {
+    content: map-get($flaticon_mycollection-map, "tickets-1");
+}
+.flaticon-corner-1:before {
+    content: map-get($flaticon_mycollection-map, "corner-1");
+}
+.flaticon-football-shirt:before {
+    content: map-get($flaticon_mycollection-map, "football-shirt");
+}
+.flaticon-shirt-2:before {
+    content: map-get($flaticon_mycollection-map, "shirt-2");
+}
+.flaticon-soccer-3:before {
+    content: map-get($flaticon_mycollection-map, "soccer-3");
+}
+.flaticon-rugby:before {
+    content: map-get($flaticon_mycollection-map, "rugby");
+}
+.flaticon-goal-6:before {
+    content: map-get($flaticon_mycollection-map, "goal-6");
+}
+.flaticon-soccer-4:before {
+    content: map-get($flaticon_mycollection-map, "soccer-4");
+}
+.flaticon-luggage:before {
+    content: map-get($flaticon_mycollection-map, "luggage");
+}
+.flaticon-football-15:before {
+    content: map-get($flaticon_mycollection-map, "football-15");
+}
+.flaticon-football-16:before {
+    content: map-get($flaticon_mycollection-map, "football-16");
+}
+.flaticon-football-award-1:before {
+    content: map-get($flaticon_mycollection-map, "football-award-1");
+}
+.flaticon-user:before {
+    content: map-get($flaticon_mycollection-map, "user");
+}
+.flaticon-add-user:before {
+    content: map-get($flaticon_mycollection-map, "add-user");
+}
+.flaticon-add-group:before {
+    content: map-get($flaticon_mycollection-map, "add-group");
+}
+.flaticon-add-friend:before {
+    content: map-get($flaticon_mycollection-map, "add-friend");
+}
+.flaticon-training:before {
+    content: map-get($flaticon_mycollection-map, "training");
+}
+.flaticon-learning:before {
+    content: map-get($flaticon_mycollection-map, "learning");
+}
+.flaticon-online-learning-2:before {
+    content: map-get($flaticon_mycollection-map, "online-learning-2");
+}

@@ -1,0 +1,29 @@
+/* Reset CSS */
+
+
+.snap_btn{
+        margin: 1px 5px 15px 20px;
+        border: 1px solid #f0f0f0;
+        background: #7ac143;
+        color: #FFF;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+        text-align: center;
+        cursor: pointer;
+        cursor: pointer;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Chrome/Safari/Opera */
+        -khtml-user-select: none; /* Konqueror */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently not supported by any browser */
+    }
+
+.capture{
+        height:140px;
+        background: url(../../media/img/noCamera.png) center 0 no-repeat;
+        background-size:100% 100% ;
+        margin: auto;
+}

@@ -1,0 +1,250 @@
+@font-face {
+  font-family: "flaticon_mycollection";
+  src: url("./flaticon_mycollection.woff2?1431294ac8067ba2e5aa1686eb637eaf") format("woff2"), url("./flaticon_mycollection.woff?1431294ac8067ba2e5aa1686eb637eaf") format("woff"), url("./flaticon_mycollection.eot?1431294ac8067ba2e5aa1686eb637eaf#iefix") format("embedded-opentype"), url("./flaticon_mycollection.ttf?1431294ac8067ba2e5aa1686eb637eaf") format("truetype"), url("./flaticon_mycollection.svg?1431294ac8067ba2e5aa1686eb637eaf#flaticon_mycollection") format("svg");
+}
+i[class^=flaticon-]:before, i[class*=" flaticon-"]:before {
+  font-family: flaticon_mycollection !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-box-1:before {
+  content: "\f101";
+}
+
+.flaticon-formation-1:before {
+  content: "\f102";
+}
+
+.flaticon-tactics:before {
+  content: "\f103";
+}
+
+.flaticon-formation-2:before {
+  content: "\f104";
+}
+
+.flaticon-football:before {
+  content: "\f105";
+}
+
+.flaticon-soccer-player:before {
+  content: "\f106";
+}
+
+.flaticon-goal:before {
+  content: "\f107";
+}
+
+.flaticon-goal-1:before {
+  content: "\f108";
+}
+
+.flaticon-tshirt:before {
+  content: "\f109";
+}
+
+.flaticon-soccer-player-2:before {
+  content: "\f10a";
+}
+
+.flaticon-football-1:before {
+  content: "\f10b";
+}
+
+.flaticon-soccer-player-4:before {
+  content: "\f10c";
+}
+
+.flaticon-trophy:before {
+  content: "\f10d";
+}
+
+.flaticon-kicking-ball:before {
+  content: "\f10e";
+}
+
+.flaticon-stadium:before {
+  content: "\f10f";
+}
+
+.flaticon-friendship:before {
+  content: "\f110";
+}
+
+.flaticon-kicking-ball-1:before {
+  content: "\f111";
+}
+
+.flaticon-football-2:before {
+  content: "\f112";
+}
+
+.flaticon-goal-4:before {
+  content: "\f113";
+}
+
+.flaticon-drills:before {
+  content: "\f114";
+}
+
+.flaticon-strategy:before {
+  content: "\f115";
+}
+
+.flaticon-soccer-1:before {
+  content: "\f116";
+}
+
+.flaticon-club:before {
+  content: "\f117";
+}
+
+.flaticon-soccer-dribbling:before {
+  content: "\f118";
+}
+
+.flaticon-cleats:before {
+  content: "\f119";
+}
+
+.flaticon-tshirt-1:before {
+  content: "\f11a";
+}
+
+.flaticon-kick:before {
+  content: "\f11b";
+}
+
+.flaticon-gloves:before {
+  content: "\f11c";
+}
+
+.flaticon-football-jersey:before {
+  content: "\f11d";
+}
+
+.flaticon-referee:before {
+  content: "\f11e";
+}
+
+.flaticon-soccer-player-7:before {
+  content: "\f11f";
+}
+
+.flaticon-football-7:before {
+  content: "\f120";
+}
+
+.flaticon-shirt:before {
+  content: "\f121";
+}
+
+.flaticon-soccer-2:before {
+  content: "\f122";
+}
+
+.flaticon-cone:before {
+  content: "\f123";
+}
+
+.flaticon-shirt-1:before {
+  content: "\f124";
+}
+
+.flaticon-football-players-1:before {
+  content: "\f125";
+}
+
+.flaticon-football-uniform-1:before {
+  content: "\f126";
+}
+
+.flaticon-football-referee:before {
+  content: "\f127";
+}
+
+.flaticon-trophy-2:before {
+  content: "\f128";
+}
+
+.flaticon-tickets-1:before {
+  content: "\f129";
+}
+
+.flaticon-corner-1:before {
+  content: "\f12a";
+}
+
+.flaticon-football-shirt:before {
+  content: "\f12b";
+}
+
+.flaticon-shirt-2:before {
+  content: "\f12c";
+}
+
+.flaticon-soccer-3:before {
+  content: "\f12d";
+}
+
+.flaticon-rugby:before {
+  content: "\f12e";
+}
+
+.flaticon-goal-6:before {
+  content: "\f12f";
+}
+
+.flaticon-soccer-4:before {
+  content: "\f130";
+}
+
+.flaticon-luggage:before {
+  content: "\f131";
+}
+
+.flaticon-football-15:before {
+  content: "\f132";
+}
+
+.flaticon-football-16:before {
+  content: "\f133";
+}
+
+.flaticon-football-award-1:before {
+  content: "\f134";
+}
+
+.flaticon-user:before {
+  content: "\f135";
+}
+
+.flaticon-add-user:before {
+  content: "\f136";
+}
+
+.flaticon-add-group:before {
+  content: "\f137";
+}
+
+.flaticon-add-friend:before {
+  content: "\f138";
+}
+
+.flaticon-training:before {
+  content: "\f139";
+}
+
+.flaticon-learning:before {
+  content: "\f13a";
+}
+
+.flaticon-online-learning-2:before {
+  content: "\f13b";
+}/*# sourceMappingURL=flaticon_mycollection.css.map */
