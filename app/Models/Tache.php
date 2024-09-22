@@ -13,13 +13,19 @@ class Tache extends Model
 
     protected $fillable = [
         'employe_id',
+        'projet_id',
         'date',
         'statut',
         'description'
     ];
-    
+
     public function employe(): BelongsTo
     {
         return $this->belongsTo(Employe::class);
+    }
+
+    public function projet(): BelongsTo
+    {
+        return $this->belongsTo(Projet::class);
     }
 }

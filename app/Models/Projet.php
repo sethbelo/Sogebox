@@ -40,4 +40,9 @@ class Projet extends Model
         return $this->hasMany(SousTraitance::class);
     }
 
+    public function taches(): HasMany
+    {
+        return $this->hasMany(Tache::class);
+    }
+
 }
