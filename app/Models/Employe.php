@@ -64,11 +64,6 @@ class Employe extends Model
         return $this->hasMany(Commande::class);
     }
 
-    public function taches(): HasMany
-    {
-        return $this->hasMany(Tache::class);
-    }
-
     public function conges(): HasMany
     {
         return $this->hasMany(Conge::class);
@@ -82,5 +77,10 @@ class Employe extends Model
     public function bons(): HasMany
     {
         return $this->hasMany(Bon::class);
+    }
+
+    public function taches(): BelongsToMany
+    {
+        return $this->belongsToMany(Tache::class, 'tache_employes', 'employe_id', 'tache_id');
     }
 }
