@@ -1,33 +1,29 @@
 <?php
 
+use App\Http\Controllers\AtelieController;
+use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ReceptionController;
-use App\Http\Controllers\AtelieController;
 use App\Http\Controllers\RhController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('auth.login' );
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('dashboard', function () {
+    return view('dashboard' );
+})->name('dashboard')->middleware(['auth', 'verified']);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('reception', ReceptionController::class);
-    Route::get('rendez-vous', [ReceptionController::class, 'rendezIndex']);
-    Route::get('reservations', [ReceptionController::class, 'reservaIndex']);
-    Route::get('clients', [ReceptionController::class, 'clientsIndex']);
+Route::resource('users', UserController::class)->middleware('checkrole:rh,superadmin');
+Route::resource('employes', EmployeController::class)->middleware('checkrole:rh,superadmin');
+Route:: resource('departements', DepartementController::class)->middleware('checkrole:rh,superadmin');
+Route::resource('departements', DepartementController::class)->middleware('checkrole:rh,superadmin');
 
-    Route::resource('atelier', AtelieController::class);
-    Route::resource('Rh', RhController::class);
-});
+Route::get('faq', function () {
+    return view('faq.index');
+})->name('faq')->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
