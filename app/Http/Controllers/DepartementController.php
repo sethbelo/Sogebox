@@ -8,33 +8,35 @@ use App\Http\Requests\UpdateDepartementRequest;
 
 class DepartementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $departements = Departement::latest()->get();
+
+        return view('departements.index', compact('departements'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreDepartementRequest $request)
     {
-        //
+        try {
+            // Create the department
+            $departement = new Departement();
+            $departement->libelle = $request->input('libelle');
+
+            // Save the department to the database
+            $departement->save();
+            return redirect()->route('departements.index')->with('success', 'Département créé avec succès.');
+        } catch (\Throwable $th) {
+            return back()->withErrors(['error', 'Une erreur s\'est produite lors de la creation du departement.'])->withInput();
+        }
+
+        // Redirect or return success response
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Departement $departement)
     {
         //
@@ -61,6 +63,12 @@ class DepartementController extends Controller
      */
     public function destroy(Departement $departement)
     {
-        //
+        try {
+            $departement->delete();
+
+            return back()->with('success', 'Département supprimé avec succès !');
+        } catch (\Throwable $th) {
+            return back()->with('error', 'Une erreur s\'est produite lors de la suppression du département');
+        }
     }
 }
