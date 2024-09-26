@@ -8,41 +8,28 @@ use App\Http\Requests\UpdateCommandeRequest;
 
 class CommandeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $commandes = Commande::latest()->get();
+
+        return view('commandes.index', compact("commandes"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('commandes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCommandeRequest $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Commande $commande)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Commande $commande)
     {
         //

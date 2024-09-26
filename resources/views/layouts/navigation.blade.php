@@ -13,61 +13,39 @@
       <!--navigation-->
       <ul class="metismenu" id="menu">
           <li>
-              <a href="javascript:;" class="has-arrow">
+              <a href="{{ route('dashboard') }}">
                   <div class="parent-icon"><i class='bx bx-home-alt'></i>
                   </div>
                   <div class="menu-title">Dashboard</div>
               </a>
-              <ul>
-                  <li> <a href="index.html"><i class="bx bx-radio-circle"></i>Default</a>
-                  </li>
-                  <li> <a href="dashboard-eCommerce.html"><i class="bx bx-radio-circle"></i>eCommerce</a>
-                  </li>
-                  <li> <a href="dashboard-sales.html"><i class="bx bx-radio-circle"></i>Sales</a>
-                  </li>
-                  <li> <a href="dashboard-analytics.html"><i class="bx bx-radio-circle"></i>Analytics</a>
-                  </li>
-                  <li> <a href="dashboard-alternate.html"><i class="bx bx-radio-circle"></i>Alternate</a>
-                  </li>
-                  <li> <a href="dashboard-digital-marketing.html"><i class="bx bx-radio-circle"></i>Digital
-                          Marketing</a>
-                  </li>
-                  <li> <a href="dashboard-human-resources.html"><i class="bx bx-radio-circle"></i>Human Resources</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="javascript:;" class="has-arrow">
-                  <div class="parent-icon"><i class="bx bx-category"></i>
-                  </div>
-                  <div class="menu-title">Application</div>
-              </a>
-              <ul>
-                  <li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>Email</a>
-                  </li>
-                  <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Chat Box</a>
-                  </li>
-                  <li> <a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>File Manager</a>
-                  </li>
-                  <li> <a href="app-contact-list.html"><i class='bx bx-radio-circle'></i>Contatcs</a>
-                  </li>
-                  <li> <a href="app-to-do.html"><i class='bx bx-radio-circle'></i>Todo List</a>
-                  </li>
-                  <li> <a href="app-invoice.html"><i class='bx bx-radio-circle'></i>Invoice</a>
-                  </li>
-                  <li> <a href="app-fullcalender.html"><i class='bx bx-radio-circle'></i>Calendar</a>
-                  </li>
-              </ul>
           </li>
           <li class="menu-label">Réception</li>
           <li>
-              <a href="widgets.html">
+              <a href="javascript:;" class="has-arrow">
                   <div class="parent-icon"><i class='bx bx-cookie'></i>
                   </div>
                   <div class="menu-title">Oppportunités</div>
               </a>
               <ul>
-                  <li> <a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Commandes</a>
+                  <li>
+                      <a href="javascript:;" class="has-arrow">
+                          <i class='bx bx-radio-circle'></i>
+                          Commandes
+                      </a>
+                      <ul>
+                          <li>
+                              <a href="{{ route('commandes.index') }}" class="has-arrow">
+                                  <i class='bx bx-radio-circle'></i>
+                                  Commandes
+                              </a>
+                          </li>
+                          <li>
+                              <a href="{{ route('commandes.create') }}" class="has-arrow">
+                                  <i class='bx bx-radio-circle'></i>
+                                  Prendre une commande
+                              </a>
+                          </li>
+                      </ul>
                   </li>
                   <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Rendez-vous</a>
                   </li>
@@ -82,11 +60,12 @@
                   <div class="menu-title">Clients</div>
               </a>
               <ul>
-                  <li> <a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Ajouter un nouveau client</a>
+                  <li> <a href="{{ route('clients.create') }}"><i class='bx bx-radio-circle'></i>Ajouter un nouveau
+                          client</a>
                   </li>
-                  <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Liste des clients</a>
+                  <li> <a href="{{ route('clients.index') }}"><i class='bx bx-radio-circle'></i>Liste des clients</a>
                   </li>
-                  <li> <a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>Contacter un
+                  <li> <a href="{{ route('clients.contact') }}"><i class='bx bx-radio-circle'></i>Contacter un
                           client</a>
                   </li>
               </ul>
@@ -113,7 +92,8 @@
                   <div class="menu-title">Employés</div>
               </a>
               <ul>
-                  <li> <a href="{{ route('employes.create') }}"><i class='bx bx-radio-circle'></i>Ajouter un nouvel employé</a>
+                  <li> <a href="{{ route('employes.create') }}"><i class='bx bx-radio-circle'></i>Ajouter un nouvel
+                          employé</a>
                   </li>
                   <li> <a href="{{ route('employes.index') }}"><i class='bx bx-radio-circle'></i>Liste des employés</a>
                   </li>
@@ -972,12 +952,13 @@
                           <div class="dropdown-divider mb-0"></div>
                       </li>
                       <li>
-                        <form action="{{ route('logout') }}" method="post">
-                            @csrf
-                            <a class="dropdown-item d-flex align-items-center" href="javascript:;" onclick="event.preventDefault(); this.closest('form').submit();">
-                                <i class="bx bx-log-out-circle"></i><span>Se déconnecter</span>
-                            </a>
-                        </form>
+                          <form action="{{ route('logout') }}" method="post">
+                              @csrf
+                              <a class="dropdown-item d-flex align-items-center" href="javascript:;"
+                                  onclick="event.preventDefault(); this.closest('form').submit();">
+                                  <i class="bx bx-log-out-circle"></i><span>Se déconnecter</span>
+                              </a>
+                          </form>
                       </li>
                   </ul>
               </div>

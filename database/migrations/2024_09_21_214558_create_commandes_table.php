@@ -11,9 +11,10 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->uuid('_id')->unique();
+            $table->string('numero_commande')->unique();
             $table->date('date_commande');
+            $table->string('statut');
             $table->foreignId('client_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('employe_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

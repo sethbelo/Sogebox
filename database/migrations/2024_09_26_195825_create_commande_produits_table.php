@@ -8,16 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('motif_paiements', function (Blueprint $table) {
+        Schema::create('commande_produits', function (Blueprint $table) {
             $table->id();
             $table->uuid('_id')->unique();
-            $table->text('libelle');
+            $table->foreignId('commande_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('produit_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('motif_paiements');
+        Schema::dropIfExists('commande_produits');
     }
 };

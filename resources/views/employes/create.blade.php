@@ -54,8 +54,8 @@
                                         <select class="form-select bg-custom-dark" id="genre" name="genre"
                                             required>
                                             <option selected disabled value>Choisissez...</option>
-                                            <option value="Homme">Homme</option>
-                                            <option value="Femme">Femme</option>
+                                            <option value="Masculin">Masculin</option>
+                                            <option value="Féminin">Féminin</option>
                                         </select>
                                     </div>
                                 </div>

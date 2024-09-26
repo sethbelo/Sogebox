@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Commande extends Model
 {
@@ -16,7 +17,10 @@ class Commande extends Model
 
     protected $fillable = [
         '_id',
+        'numero_commande',
         'date_commande',
+        'statut',
+        'prix',
         'client_id',
         'employe_id'
     ];
@@ -29,6 +33,21 @@ class Commande extends Model
             $model->_id = (string) Str::uuid();
         });
     }
+
+    public static function generateOrderNumber()
+    {
+        // Récupère la date actuelle
+        $currentDate = date('Ymd'); // Format YYYYMMDD
+
+        // Génère un numéro aléatoire de 6 chiffres
+        $randomNumber = mt_rand(100000, 999999);
+
+        // Combine la date et le numéro aléatoire
+        $orderNumber = 'ORD-' . $currentDate . '-' . $randomNumber;
+
+        return $orderNumber;
+    }
+
 
     public function client(): BelongsTo
     {
@@ -48,5 +67,10 @@ class Commande extends Model
     public function factures(): HasMany
     {
         return $this->hasMany(Facture::class);
+    }
+
+    public function produits(): BelongsToMany
+    {
+        return $this->belongsToMany(Produit::class, 'commande_produits', 'commande_id', 'produit_id');
     }
 }

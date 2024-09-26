@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Produit extends Model
 {
@@ -27,7 +28,7 @@ class Produit extends Model
             $model->_id = (string) Str::uuid();
         });
     }
-    
+
     public function categorie_produit(): BelongsTo
     {
         return $this->belongsTo(CategorieProduit::class);
@@ -41,5 +42,10 @@ class Produit extends Model
     public function resumes(): HasMany
     {
         return $this->hasMany(related: Resume::class);
+    }
+
+    public function commandes(): BelongsToMany
+    {
+        return $this->belongsToMany(Commande::class, 'commande_produits', 'produit_id', 'commande_id');
     }
 }

@@ -31,7 +31,7 @@
     <!--plugins-->
 
     <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
-    @vite(['resources/css/app.css', 'resources/css/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>Sogebox</title>
 </head>
@@ -70,6 +70,7 @@
     <script src="{{ Vite::asset('node_modules/flowbite/dist/flowbite.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/validation/validation-script.js') }}"></script>
+    <script src="{{ Vite::asset('node_modules/chart.js/dist/chart.umd.js') }}"></script>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {

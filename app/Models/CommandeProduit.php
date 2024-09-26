@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\Produit;
+use App\Models\Commande;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Participant extends Model
+class CommandeProduit extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        '_id',
-        'employe_id',
-        'reunion_id'
+        'commande_id',
+        'produit_id'
     ];
 
     protected static function boot()
@@ -26,13 +27,13 @@ class Participant extends Model
         });
     }
 
-    public function employe(): BelongsTo
+    public function produit(): BelongsTo
     {
-        return $this->belongsTo(Employe::class);
+        return $this->belongsTo(Produit::class);
     }
 
-    public function reunion(): BelongsTo
+    public function commande(): BelongsTo
     {
-        return $this->belongsTo(Reunion::class);
+        return $this->belongsTo(Commande::class);
     }
 }
