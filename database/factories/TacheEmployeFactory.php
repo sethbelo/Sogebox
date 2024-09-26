@@ -2,22 +2,17 @@
 
 namespace Database\Factories;
 
+use App\Models\Tache;
+use App\Models\Employe;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\TacheEmploye>
- */
 class TacheEmployeFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'tache_id' => Tache::factory(),
+            'employe_id' => Employe::factory()
         ];
     }
 }

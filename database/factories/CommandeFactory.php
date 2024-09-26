@@ -2,22 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\Commande;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Commande>
- */
 class CommandeFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'numero_commande' => Commande::generateOrderNumber(),
+            'date_commande' => $this->faker->date(),
+            'statut' => $this->faker->randomElement(['livrée', 'annulée', 'en attente']), // Statut aléatoire
+            'client_id' => \App\Models\Client::factory(), // Utilisation de la factory de Client
+            'employe_id' => \App\Models\Employe::factory(), // Utilisation de la factory de Employe
         ];
     }
 }

@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Commande;
+use App\Models\CommandeProduit;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CommandeSeeder extends Seeder
+class CommandeProduitSeeder extends Seeder
 {
     public function run(): void
     {
-        Commande::factory(100)->create();
+        CommandeProduit::factory(100)->create();
     }
 }
