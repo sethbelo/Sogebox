@@ -17,6 +17,7 @@ export default {
             },
             colors: {
                 'custom-dark': '#2f464d',
+                'bg-chart': '#132329'
             },
         },
     },
