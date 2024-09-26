@@ -16,6 +16,7 @@ class Client extends Model
         'nom',
         'type_client',
         'telephone',
+        'email',
         'adresse',
         'images'
     ];

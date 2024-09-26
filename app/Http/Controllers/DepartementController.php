@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Departement;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreDepartementRequest;
 use App\Http\Requests\UpdateDepartementRequest;
 
@@ -31,10 +32,9 @@ class DepartementController extends Controller
             $departement->save();
             return redirect()->route('departements.index')->with('success', 'Département créé avec succès.');
         } catch (\Throwable $th) {
+            Log::error('Erreur lors de la création du departement : ' . $th->getMessage());
             return back()->withErrors(['error', 'Une erreur s\'est produite lors de la creation du departement.'])->withInput();
         }
-
-        // Redirect or return success response
     }
 
     public function show(Departement $departement)
@@ -42,25 +42,16 @@ class DepartementController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Departement $departement)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateDepartementRequest $request, Departement $departement)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Departement $departement)
     {
         try {
@@ -68,6 +59,7 @@ class DepartementController extends Controller
 
             return back()->with('success', 'Département supprimé avec succès !');
         } catch (\Throwable $th) {
+            Log::error('Erreur lors de la suppression du departement : ' . $th->getMessage());
             return back()->with('error', 'Une erreur s\'est produite lors de la suppression du département');
         }
     }

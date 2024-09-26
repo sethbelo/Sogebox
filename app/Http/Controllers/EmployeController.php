@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employe;
 use App\Models\Departement;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreEmployeRequest;
 use App\Http\Requests\UpdateEmployeRequest;
 
@@ -43,6 +44,7 @@ class EmployeController extends Controller
             ]);
             return redirect()->route('employes.index')->with('success', 'Employé enregistré avec succès!');
         } catch (\Throwable $th) {
+            Log::error('Erreur lors de la création de l\'employé : ' . $th->getMessage());
             return back()->withErrors(['error', 'Une erreur s\'est produite lors de la creation du nouvel employé.'])->withInput();
         }
     }
