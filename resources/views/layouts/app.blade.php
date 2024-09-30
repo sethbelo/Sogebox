@@ -71,6 +71,7 @@
     <script src="{{ asset('assets/plugins/validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/validation/validation-script.js') }}"></script>
     <script src="{{ Vite::asset('node_modules/chart.js/dist/chart.umd.js') }}"></script>
+    <script src="{{ Vite::asset('node_modules/preline/dist/preline.js') }}"></script>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {

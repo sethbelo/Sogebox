@@ -59,11 +59,6 @@ class Employe extends Model
         return $this->hasMany(Pointing::class);
     }
 
-    public function commandes(): HasMany
-    {
-        return $this->hasMany(Commande::class);
-    }
-
     public function conges(): HasMany
     {
         return $this->hasMany(Conge::class);
