@@ -11,7 +11,7 @@
 
                         <div class="card bg-transparent shadow-none rounded-0 mb-0">
                             <div class="card-body">
-                                <img src="{{ asset('assets/images/login-images/login-cover.svg') }}"
+                                <img src="{{ asset('img/brand.png') }}"
                                     class="img-fluid auth-img-cover-login" width="650" alt="" />
                             </div>
                         </div>

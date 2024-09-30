@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
+Route::get('/', [HomeController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
 
 Route::resource('users', UserController::class)->middleware('checkrole:rh,superadmin');

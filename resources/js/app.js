@@ -7,3 +7,5 @@ window.Alpine = Alpine;
 Alpine.start();
 
 import Chart from "chart.js/auto";
+
+import '@progress/kendo-ui';

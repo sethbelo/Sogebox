@@ -4,84 +4,86 @@
         <!--start page wrapper -->
         <div class="page-wrapper">
             <div class="page-content">
-                <div class="card bg-bg-chart rounded-lg shadow-lg p-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4">
-                        @can('view employees')
-                            <a href="{{ route('employes.index') }}">
-                                <div class="col bg-custom-dark p-4 rounded-lg shadow hover:bg-gray-900">
-                                    <div class="flex items-center">
-                                        <h5 class="text-white text-lg">{{ $totalEmployes }}</h5>
-                                        <div class="ml-auto">
-                                            <i class='bx bx-group text-3xl text-white'></i>
+                @if(Auth::user()->hasAnyRole('superadmin', 'rh', 'commercial', 'atelier', 'dga'))
+                    <div class="card bg-bg-chart rounded-lg shadow-lg p-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4">
+                            @can('view employees')
+                                <a href="{{ route('employes.index') }}">
+                                    <div class="col bg-custom-dark p-4 rounded-lg shadow hover:bg-gray-900">
+                                        <div class="flex items-center">
+                                            <h5 class="text-white text-lg">{{ $totalEmployes }}</h5>
+                                            <div class="ml-auto">
+                                                <i class='bx bx-group text-3xl text-white'></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
+                                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 55%"></div>
+                                        </div>
+                                        <div class="flex items-center text-white">
+                                            <p class="text-sm">Total employés</p>
                                         </div>
                                     </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
-                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 55%"></div>
-                                    </div>
-                                    <div class="flex items-center text-white">
-                                        <p class="text-sm">Total employés</p>
-                                    </div>
-                                </div>
-                            </a>
-                        @endcan
-                        @can('view orders')
-                            <a href="{{ route('commandes.index') }}">
-                                <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
-                                    <div class="flex items-center">
-                                        <h5 class="text-white text-lg">{{ $totalCommandes }}</h5>
-                                        <div class="ml-auto">
-                                            <i class='bx bx-dollar text-3xl text-white'></i>
+                                </a>
+                            @endcan
+                            @can('view orders')
+                                <a href="{{ route('commandes.index') }}">
+                                    <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
+                                        <div class="flex items-center">
+                                            <h5 class="text-white text-lg">{{ $totalCommandes }}</h5>
+                                            <div class="ml-auto">
+                                                <i class='bx bx-dollar text-3xl text-white'></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
+                                            <div class="bg-green-500 h-1.5 rounded-full" style="width: 55%"></div>
+                                        </div>
+                                        <div class="flex items-center text-white">
+                                            <p class="text-sm">Total commandes</p>
                                         </div>
                                     </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
-                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 55%"></div>
-                                    </div>
-                                    <div class="flex items-center text-white">
-                                        <p class="text-sm">Total commandes</p>
-                                    </div>
-                                </div>
-                            </a>
-                        @endcan
+                                </a>
+                            @endcan
 
-                        @can('view clients')
-                            <a href="{{ route('clients.index') }}">
-                                <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
-                                    <div class="flex items-center">
-                                        <h5 class="text-white text-lg">{{ $totalClients }}</h5>
-                                        <div class="ml-auto">
-                                            <i class='bx bx-group text-3xl text-white'></i>
+                            @can('view clients')
+                                <a href="{{ route('clients.index') }}">
+                                    <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
+                                        <div class="flex items-center">
+                                            <h5 class="text-white text-lg">{{ $totalClients }}</h5>
+                                            <div class="ml-auto">
+                                                <i class='bx bx-group text-3xl text-white'></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
+                                            <div class="bg-red-500 h-1.5 rounded-full" style="width: 55%"></div>
+                                        </div>
+                                        <div class="flex items-center text-white">
+                                            <p class="text-sm">Clients</p>
                                         </div>
                                     </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
-                                        <div class="bg-red-500 h-1.5 rounded-full" style="width: 55%"></div>
-                                    </div>
-                                    <div class="flex items-center text-white">
-                                        <p class="text-sm">Clients</p>
-                                    </div>
-                                </div>
-                            </a>
-                        @endcan
+                                </a>
+                            @endcan
 
-                        @can('view users')
-                            <a href="{{ route('users.index') }}">
-                                <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
-                                    <div class="flex items-center">
-                                        <h5 class="text-white text-lg">{{ $totalUsers }}</h5>
-                                        <div class="ml-auto">
-                                            <i class='bx bx-group text-3xl text-white'></i>
+                            @can('view users')
+                                <a href="{{ route('users.index') }}">
+                                    <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
+                                        <div class="flex items-center">
+                                            <h5 class="text-white text-lg">{{ $totalUsers }}</h5>
+                                            <div class="ml-auto">
+                                                <i class='bx bx-group text-3xl text-white'></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
+                                            <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 55%"></div>
+                                        </div>
+                                        <div class="flex items-center text-white">
+                                            <p class="text-sm">Utilisateurs</p>
                                         </div>
                                     </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-1.5 my-3">
-                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 55%"></div>
-                                    </div>
-                                    <div class="flex items-center text-white">
-                                        <p class="text-sm">Utilisateurs</p>
-                                    </div>
-                                </div>
-                            </a>
-                        @endcan
+                                </a>
+                            @endcan
+                        </div>
                     </div>
-                </div>
+                @endif
 
                 <div class="row">
                     <div class="col-12 col-lg-8 col-xl-8 d-flex">
@@ -423,7 +425,7 @@
                     type: "get",
                     url: "/getrecentemployees",
                     dataType: "json",
-                    success: function (response) {
+                    success: function(response) {
                         response.forEach(employee => {
                             $('#recentEmployees').append(
                                 `

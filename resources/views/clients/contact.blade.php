@@ -42,7 +42,7 @@
                                 <div
                                     class="p-4 border radius-15 d-flex flex-column justify-content-center align-items-center">
                                     <div>
-                                        <img src="{{ asset($client->images ?? 'img/profil.jpeg') }}" width="110" height="110"
+                                        <img src="{{ asset('img/profil.jpeg') }}" width="110" height="110"
                                             class="rounded-circle shadow" alt="">
                                     </div>
                                     <h5 class="mb-0 mt-5">{{ $client->nom }}</h5>
