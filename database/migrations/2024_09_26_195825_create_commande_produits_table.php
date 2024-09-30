@@ -11,6 +11,8 @@ return new class extends Migration
         Schema::create('commande_produits', function (Blueprint $table) {
             $table->id();
             $table->uuid('_id')->unique();
+            $table->decimal('prix_unitaire_negocie')->nullable();
+            $table->integer('quantite');
             $table->foreignId('commande_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('produit_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

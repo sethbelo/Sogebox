@@ -17,6 +17,7 @@ class Produit extends Model
         'categorie_produit_id',
         'produits',
         'quantite_en_stock',
+        'prix_unitaire',
         'description'
     ];
 

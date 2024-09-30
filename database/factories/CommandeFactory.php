@@ -13,8 +13,9 @@ class CommandeFactory extends Factory
             'numero_commande' => Commande::generateOrderNumber(),
             'date_commande' => $this->faker->date(),
             'statut' => $this->faker->randomElement(['livrée', 'annulée', 'en attente']), // Statut aléatoire
+            'frais_main_oeuvre' => $this->faker->numberBetween(1, 1000),
+            'frais_livraison' => $this->faker->numberBetween(1, 1000),
             'client_id' => \App\Models\Client::factory(), // Utilisation de la factory de Client
-            'employe_id' => \App\Models\Employe::factory(), // Utilisation de la factory de Employe
         ];
     }
 }
