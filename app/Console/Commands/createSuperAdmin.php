@@ -20,7 +20,7 @@ class createSuperAdmin extends Command
 
 
         // Créer l'utilisateur
-        $user = User::create([
+        $user = User::firstOrCreate([
             'name' => $name,
             'email' => $email,
             'password' => $password,
