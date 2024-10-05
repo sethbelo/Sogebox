@@ -69,6 +69,7 @@
                         <select required id="role" name="role"
                             class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-base rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected value="">Selectionnez un rôle</option>
+                            <option value="not set">Ne pas assigner de rôle pour l'instant</option>
                             @foreach ($roles as $role)
                                 <option value="{{ $role->id }}">{{ $role->name }}</option>
                             @endforeach
