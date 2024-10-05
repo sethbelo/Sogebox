@@ -8,20 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('conges', function (Blueprint $table) {
+        Schema::create('conge_examines', function (Blueprint $table) {
             $table->id();
             $table->uuid('_id')->unique();
-            $table->foreignId('employe_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->date('date_debut');
-            $table->date('date_fin');
-            $table->text('motif');
-            $table->string('statut')->default('Non examiné');
+            $table->foreignId('conge_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('conges');
+        Schema::dropIfExists('conge_examines');
     }
 };

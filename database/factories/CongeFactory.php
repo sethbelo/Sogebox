@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CongeFactory extends Factory
@@ -13,6 +14,7 @@ class CongeFactory extends Factory
             'date_debut' => $this->faker->date(),
             'date_fin' => $this->faker->date(),
             'motif' => $this->faker->sentence(),
+            'statut' => $this->faker->randomElement(['Non examiné', 'En attente', 'Approuvé', 'Refusé']),
         ];
     }
 }
