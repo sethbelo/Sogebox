@@ -27,6 +27,7 @@ class Employe extends Model
         'date_embauche',
         'salaire',
         'poste',
+        'est_chef',
         'departement_id'
     ];
 
