@@ -29,6 +29,7 @@
 
     <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
     <!--plugins-->
+    <link rel="stylesheet" href="{{ asset('assets/css/print.css') }}">
 
     <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -37,20 +38,39 @@
 </head>
 
 <body>
-    @include('layouts.navigation')
+    <!--wrapper-->
+    <div class="wrapper">
+        <!--Start Side bar wrapper and Header -->
+        @include('layouts.navigation')
+        <!--End Side bar wrapper and Header -->
 
-    <main>
-        {{ $slot }}
-    </main>
+        <!--start page wrapper -->
+        <div class="page-wrapper">
+            {{ $slot }}
+        </div>
+        <!--end page wrapper -->
 
+        <!--start overlay-->
+        <div class="overlay toggle-icon"></div>
+        <!--end overlay-->
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top">
+            <i class='bx bxs-up-arrow-alt'></i>
+        </a>
+        <!--End Back To Top Button-->
+
+        <footer class="page-footer">
+            <p class="mb-0">Copyright © {{ date('Y') }}. All right reserved.</p>
+        </footer>
+
+    </div>
+    <!--end wrapper-->
+
+    <!-- start switcher -->
     @include('partials.theme-switcher')
+    <!-- end switcher -->
 
-    <!--Start Back To Top Button-->
-    <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-    <!--End Back To Top Button-->
-    {{-- <footer class="page-footer">
-        <p class="mb-0">Copyright © {{ date('Y') }}. All right reserved.</p>
-    </footer> --}}
     {{-- Script --}}
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <!--plugins-->
@@ -72,6 +92,7 @@
     <script src="{{ asset('assets/plugins/validation/validation-script.js') }}"></script>
     <script src="{{ Vite::asset('node_modules/chart.js/dist/chart.umd.js') }}"></script>
     <script src="{{ Vite::asset('node_modules/preline/dist/preline.js') }}"></script>
+    <script src="{{ Vite::asset('node_modules/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
