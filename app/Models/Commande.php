@@ -24,7 +24,6 @@ class Commande extends Model
         'frais_main_oeuvre',
         'frais_livraison',
         'statut',
-        'prix',
         'client_id',
     ];
 
@@ -57,31 +56,6 @@ class Commande extends Model
         });
     }
 
-    public static function generateOrderNumber()
-    {
-        return DB::transaction(function () {
-
-            // Récupérer la date actuelle au format YYYYMMDD
-            $currentDate = date('Ymd');
-
-            // Verrouiller la table des commandes pour empêcher l'incrément simultané
-            DB::table('commandes')->lockForUpdate();
-
-            // Compter le nombre de commandes créées aujourd'hui
-            $todayOrderCount = DB::table('commandes')
-                ->whereDate('created_at', now()->toDateString())
-                ->count();
-
-            // Incrémenter le compteur et formater avec 6 chiffres
-            $orderNumber = str_pad($todayOrderCount + 1, 6, '0', STR_PAD_LEFT);
-
-            // Générer le numéro de commande unique
-            $orderNumber = 'CMD-' . $currentDate . '-' . $orderNumber;
-
-            return $orderNumber;
-        });
-    }
-
 
     public function client(): BelongsTo
     {
@@ -100,6 +74,7 @@ class Commande extends Model
 
     public function produits(): BelongsToMany
     {
-        return $this->belongsToMany(Produit::class, 'commande_produits', 'commande_id', 'produit_id');
+        return $this->belongsToMany(Produit::class, 'commande_produits', 'commande_id', 'produit_id')
+            ->withPivot('quantite', 'prix_unitaire_negocie');
     }
 }

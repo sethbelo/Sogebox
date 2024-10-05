@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('date_commande');
             $table->decimal('frais_main_oeuvre', 10,2)->default(0);
             $table->decimal('frais_livraison', 10,2)->default(0);
-            $table->string('statut');
+            $table->string('statut')->default('En attente');
             $table->foreignId('client_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
