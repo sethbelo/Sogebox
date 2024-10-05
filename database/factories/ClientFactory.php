@@ -12,7 +12,7 @@ class ClientFactory extends Factory
             'nom' => $this->faker->company(), // Nom d'une entreprise
             'type_client' => $this->faker->randomElement(['Particulier', 'Entreprise']),
             'telephone' => $this->faker->phoneNumber(),
-            'email' => $this->faker->safeEmail,
+            'email' => $this->faker->unique()->safeEmail(),
             'adresse' => $this->faker->address(),
             'images' => $this->faker->imageUrl(), // URL d'une image
         ];
