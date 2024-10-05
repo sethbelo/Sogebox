@@ -14,6 +14,8 @@ class CommandeProduit extends Model
     use HasFactory;
 
     protected $fillable = [
+        'quantite',
+        'prix_unitaire_negocie',
         'commande_id',
         'produit_id'
     ];
