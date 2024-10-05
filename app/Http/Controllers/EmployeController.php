@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employe;
 use App\Models\Departement;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreEmployeRequest;
 use App\Http\Requests\UpdateEmployeRequest;
@@ -17,6 +18,20 @@ class EmployeController extends Controller
         return view("employes.index", compact("employes"));
     }
 
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $employe = Employe::where('prenom', 'LIKE', "%{$searchTerm}%")
+            ->orWhere('nom', 'LIKE', "%{$searchTerm}%")
+            ->orWhere('postnom', 'LIKE', "%{$searchTerm}%")
+            ->orWhere('prenom', 'LIKE', "%{$searchTerm}%")
+            ->take(4)
+            ->latest()
+            ->get();
+
+        return response()->json($employe);
+    }
+
     public function create()
     {
         $departements = Departement::latest()->get();
@@ -27,6 +42,8 @@ class EmployeController extends Controller
     public function store(StoreEmployeRequest $request)
     {
         try {
+            $est_chef = ($request->input('est_chef') ? 1 : 0);
+
             $employe = Employe::firstOrCreate([
                 'nom' => $request->input('nom'),
                 'postnom' => $request->input('postnom'),
@@ -40,6 +57,7 @@ class EmployeController extends Controller
                 'date_embauche' => $request->input('date_embauche'),
                 'salaire' => $request->input('salaire'),
                 'poste' => $request->input('poste'),
+                'est_chef' => $est_chef,
                 'departement_id' => $request->input('departement_id'),
             ]);
             return redirect()->route('employes.index')->with('success', 'Employé enregistré avec succès!');
