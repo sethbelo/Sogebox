@@ -16,6 +16,18 @@ class ClientController extends Controller
         return view('clients.index', compact('clients'));
     }
 
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $clients = Client::where('nom', 'LIKE', "%{$searchTerm}%")
+            ->orWhere('email', 'LIKE', "%{$searchTerm}")
+            ->take(5)
+            ->latest()
+            ->get();
+
+        return response()->json($clients);
+    }
+
     public function contact()
     {
         $clients = Client::latest()->get();
@@ -102,7 +114,7 @@ class ClientController extends Controller
 
             return redirect()->route('clients.index')->with('success', 'Client supprimé avec succès !');
         } catch (\Throwable $th) {
-            Log::error('erreur lors de la suppression d\'un client : '. $th->getMessage());
+            Log::error('erreur lors de la suppression d\'un client : ' . $th->getMessage());
             return back()->with('error', 'Une erreur s\'est produite lors de la suppression du client !');
         }
     }
