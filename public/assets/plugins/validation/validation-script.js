@@ -16,8 +16,6 @@ $(document).ready(function () {
             },
             genre: {
                 required: true,
-                // Valider que le genre est soit "homme" soit "femme"
-                in: ["homme", "femme"]
             },
             etat_civil: "required",
             nationalite: {
