@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employe;
 use App\Models\Departement;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreDepartementRequest;
 use App\Http\Requests\UpdateDepartementRequest;
@@ -11,9 +13,13 @@ class DepartementController extends Controller
 {
     public function index()
     {
-        $departements = Departement::latest()->get();
+        $departements = Departement::withCount('employes')->with(['employes' => function ($query) {
+            $query->where('est_chef', true);
+        }])->get();
 
-        return view('departements.index', compact('departements'));
+        $employes = Employe::all();
+
+        return view('departements.index', compact('departements', 'employes'));
     }
 
     public function create()
