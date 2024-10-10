@@ -23,6 +23,6 @@
         "chart.js": "^4.4.4",
         "flowbite": "^2.5.1",
         "preline": "^2.5.0",
-        "sweetalert2": "^11.14.1"
+        "sweetalert2": "^11.6.13"
     }
 }

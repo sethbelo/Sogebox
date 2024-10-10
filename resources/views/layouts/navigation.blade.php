@@ -202,9 +202,9 @@
                   <div class="menu-title">Départements</div>
               </a>
           </li>
-          @can('view users')
+          @can('voir les utilisateurs')
               <li>
-                  <a class="has-arrow" href="javascript:;">
+                  <a class="" href="{{ route('users.index') }}">
                       <div class="parent-icon">
                           <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                               width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -214,40 +214,9 @@
 
                       </div>
                       <div class="menu-title">
-                          Utilisateurs
+                          Gestion des utilisateurs
                       </div>
                   </a>
-                  <ul>
-                      <li>
-                          <a href="{{ route('users.index') }}">
-                              <div class="parent-icon">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                      viewBox="0 0 32 32">
-                                      <path fill="currentColor"
-                                          d="M4 5v6h6V5zm2 2h2v2H6zm6 0v2h15V7zm-8 6v6h6v-6zm2 2h2v2H6zm6 0v2h15v-2zm-8 6v6h6v-6zm2 2h2v2H6zm6 0v2h15v-2z" />
-                                  </svg>
-                              </div>
-                              <div class="menu-title">
-                                  Liste des utilisateurs
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="{{ route('users.roles') }}">
-                              <div class="parent-icon">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                      viewBox="0 0 48 48">
-                                      <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          d="M22.2 4.86L6.69 11.25V27C6.69 35.44 24 43.5 24 43.5S41.31 35.44 41.31 27V11.25L25.8 4.86a4.68 4.68 0 0 0-3.6 0M24 43.5v-39M6.69 24h34.62" />
-                                  </svg>
-                              </div>
-                              <div class="menu-title">
-                                  Rôles et permissions
-                              </div>
-                          </a>
-                      </li>
-                  </ul>
               </li>
           @endcan
 

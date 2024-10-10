@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
@@ -20,7 +21,34 @@ class UserController extends Controller
         return view('users.index', compact('users', 'roles', 'password'));
     }
 
-    public function sendMail($username, $email, $password, $role)
+    public function updateUserRole(Request $request)
+    {
+        $userId = $request->input('user_id');
+        $roleId = $request->input('role_id');
+        $assign = $request->input('assign');
+
+        $user = User::find($userId);
+        if ($assign === true) {
+            $user->roles()->attach($roleId);
+        } else {
+            $user->roles()->detach($roleId);
+        }
+
+        return response()->json(['message' => 'User  role updated successfully']);
+    }
+
+    public function deleteUserRole(Request $request)
+    {
+        $userId = $request->input('user_id');
+        $roleId = $request->input('role_id');
+
+        $user = User::find($userId);
+        $user->roles()->detach($roleId);
+
+        return response()->json(['message' => 'User  role deleted successfully']);
+    }
+
+    public function sendMail($username, $email, $password)
     {
         // Créer une instance de PHPMailer
         $mail = new PHPMailer(true);
@@ -44,8 +72,8 @@ class UserController extends Controller
             $mail->Body = '
             <section style="max-width: 32rem; padding: 2rem 1.5rem; margin: auto; background-color: #ffffff; color: #333;">
                 <header>
-                    <a href="https://www.rotana.com/">
-                        <img src="https://hospitality-on.com/sites/default/files/styles/image738xosef_nowebp/public/2019-10/rotana.jpg?itok=pwNerQdh" alt="Kin Plaza Arjaan By Rotana" style="width: 50%; height: 100%; display: block; margin: 0 auto;">
+                    <a href="#">
+                        SOGEREF
                     </a>
                 </header>
 
@@ -59,7 +87,7 @@ class UserController extends Controller
                     <p style="margin-top: 0.5rem; line-height: 1.75; color: #4a5568;">
                         <span style="font-weight: 700;">Nom d\'utilisateur : </span> ' . $username . '<br>
                         <span style="font-weight: 700;">Mot de passe : </span> ' . $password . '<br>
-                        <span style="font-weight: 700;">URL de connexion : </span> <a href="{{ route(\'login\') }}" style="text-decoration: underline; color: #3182ce;">Se connecter</a>
+                        <span style="font-weight: 700;">URL de connexion : </span> <a href="http://127.0.0.1:8000/login" style="text-decoration: underline; color: #3182ce;">Se connecter</a>
                     </p>
 
                     <p style="margin-top: 0.5rem; text-align: justify; line-height: 1.75; color: #4a5568; ">
@@ -68,7 +96,7 @@ class UserController extends Controller
 
                     <p style="margin-top: 1rem; color: #4a5568;">
                         Merci, <br>
-                        L\'équipe Kin Plaza Arjaan By Rotana
+                        L\'équipe Sogeref
                     </p>
                 </main>
 
@@ -77,7 +105,7 @@ class UserController extends Controller
                         Ce courriel a été envoyé à <a href="#" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank">' . $email . '</a>.
                         Si vous préférez ne pas recevoir ce type d\'e-mail, vous pouvez <a href="#" style="color: #1c64f2; ">gérer vos préférences en matière d\'e-mail.</a>.
                     </p>
-                    <p style="margin-top: 0.75rem; color: #6b7280">© ' . date('Y') . ' Kin Plaza Arjaan By Rotana. Tous les droits sont réservés.</p>
+                    <p style="margin-top: 0.75rem; color: #6b7280">© ' . date('Y') . ' Sogeref. Tous les droits sont réservés.</p>
                 </footer>
             </section>
             ';
@@ -135,17 +163,14 @@ class UserController extends Controller
             [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8',
-                'role' => 'required'
+                'password' => 'required|string|min:8'
             ],
             [
                 'name.required' => 'Veuillez saisir un nom d\'utilisateur.',
-                'email.required.email' =>'Veuillez saisir une adresse mail valide.',
+                'email.required.email' => 'Veuillez saisir une adresse mail valide.',
                 'email.unique' => 'Cette adresse mail a deja ete prise.',
             ]
         );
-
-        $role = Role::find($validatedData['role']);
 
         try {
             // Créer l'utilisateur
@@ -155,12 +180,9 @@ class UserController extends Controller
                 'password' => bcrypt($validatedData['password']),
             ]);
 
-            // Assigner le rôle à l'utilisateur
-            $user->assignRole($role->name);
-
             if ($request->input('mail')) {
                 try {
-                    $this->sendMail($validatedData['name'], $validatedData['email'], $validatedData['password'], $role);
+                    $this->sendMail($validatedData['name'], $validatedData['email'], $validatedData['password']);
                     return back()->with('success', 'L\'utilisateur a été créé avec succès ! Un email a été envoyé à ' . $validatedData['name'] . ' avec les détails du compte.');
                 } catch (\Throwable $th) {
                     return back()->with('error', $th->getMessage());
@@ -171,7 +193,6 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             return back()->with('error', 'Une erreur s\'est produite lors de la création de l\'utilisateur: ' . $th->getMessage());
         }
-
     }
 
     public function show(User $user)
@@ -210,6 +231,16 @@ class UserController extends Controller
             return back()->with('success', 'L\'utilisateur a été rétiré avec succès ! ');
         } catch (\Throwable $th) {
             return back()->with('error', 'Une erreur s\'est produite lors de la suppression de l\'utilisateur');
+        }
+    }
+
+    public function destroyUser(User $user)
+    {
+        try {
+            $user->delete();
+            return response()->json(['message' => 'User deleted successfully']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error deleting user: ' . $e->getMessage()], 500);
         }
     }
 }

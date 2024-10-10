@@ -3,7 +3,7 @@
         @if (Auth::user()->hasAnyRole('superadmin', 'rh', 'commercial', 'atelier', 'dga'))
             <div class="card bg-bg-chart rounded-lg shadow-lg p-4">
                 <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4">
-                    @can('view employees')
+
                         <a href="{{ route('employes.index') }}">
                             <div class="col bg-custom-dark p-4 rounded-lg shadow hover:bg-gray-900">
                                 <div class="flex items-center">
@@ -20,8 +20,6 @@
                                 </div>
                             </div>
                         </a>
-                    @endcan
-                    @can('view orders')
                         <a href="{{ route('commandes.index') }}">
                             <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
                                 <div class="flex items-center">
@@ -38,9 +36,6 @@
                                 </div>
                             </div>
                         </a>
-                    @endcan
-
-                    @can('view clients')
                         <a href="{{ route('clients.index') }}">
                             <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
                                 <div class="flex items-center">
@@ -57,9 +52,6 @@
                                 </div>
                             </div>
                         </a>
-                    @endcan
-
-                    @can('view users')
                         <a href="{{ route('users.index') }}">
                             <div class="col hover:bg-gray-900 p-4 rounded-lg shadow bg-custom-dark">
                                 <div class="flex items-center">
@@ -76,7 +68,6 @@
                                 </div>
                             </div>
                         </a>
-                    @endcan
                 </div>
             </div>
         @endif

@@ -91,7 +91,6 @@
     <script src="{{ asset('assets/plugins/validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/validation/validation-script.js') }}"></script>
     <script src="{{ Vite::asset('node_modules/chart.js/dist/chart.umd.js') }}"></script>
-    <script src="{{ Vite::asset('node_modules/preline/dist/preline.js') }}"></script>
     <script src="{{ Vite::asset('node_modules/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -121,8 +120,6 @@
             $(".knob").knob();
         });
     </script>
-
-    <script src="{{ asset('assets/js/index.js') }}"></script>
     <!--app JS-->
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
